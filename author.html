@@ -6,28 +6,31 @@
 <body>
 <h2>Author entry-Shiva Ram Reddy Marthala</h2>
 <form>
-    <label for="hiddenAuthor">The hidden author name</label>
-    <input type ="password" id="hiddenAuthor" name="Dickens" disabled> <br>
-    <label for="guessAuthor">Guess the author</label>
-    <input type ="text" id="guessAuthor" name="guessAuthor" autofocus> <br>
+    <label for="Author_Name">The hidden author name</label>
+    <input type ="password" id="Author_Name" name="Dickens" disabled> <br>
+    <label for="Author_id">Guess the author</label>
+    <input type ="text" id="Author_id" name="Author_id" autofocus> <br>
     <input type="button" onclick="resolveForm()" value="Check the guess">
 </form>
 <p id="result">Results: Good - <span id="goodcount">0</span>, Oops - <span id="oppscount">0</span></p>
 <script>
-let Good=0;
-let Opps=0;
+var Good=0;
+var Opps=0;
 function checkAuthor (){
-   hidden = document.getElemmentById("hiddenAuthor").value
-   guess = document.getElementById("guessAuthor").value
+    password = document.getElementById("pass").value
+    text = document.getElementById("check").value
+   name = document.getElemmentById("hiddenAuthor").value
+   pass = document.getElementById("guessAuthor").value
     out = document.getElementById("result")
-    if(hidden==guess){
+    
+    if(name==pass){
         good++;
         alter('You got it right')
-        out.innerHTML = "Results: Good-"+good+", Oops-"+oops
+        name.innerHTML = Good
     } else {
         oops++
         alter('Sorry')
-        out.innerHTML = "Result: Good- "+good+", Oops-"+oops
+        pass.innerHTML = oops
     }
 }
 </script>
