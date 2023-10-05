@@ -3,6 +3,6 @@
 Introduction to Java Script and DOM
 Hosted at[Page link](https://44-563-webapps-f23.github.io/44563-webapps-f23-assignment6-ShivaRamReddyMarthala/)
 
--[Author Page](https://example.com/author.html)
+- [Author Page](https://example.com/author.html)
 - [Tips Page](https://example.com/tips.html)
 - [Cruise Page](https://example.com/cruise.html)
