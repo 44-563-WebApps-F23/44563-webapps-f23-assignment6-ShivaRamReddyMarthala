@@ -10,6 +10,7 @@
     <input type ="password" id="Author_Name" name="Dickens" disabled> <br>
     <label for="Author_id">Guess the author</label>
     <input type ="text" id="Author_id" name="Author_id" autofocus> <br>
+
     <input type="button" onclick="resolveForm()" value="Check the guess">
 </form>
 <p id="result">Results: Good - <span id="goodcount">0</span>, Oops - <span id="oppscount">0</span></p>
@@ -19,6 +20,7 @@ var Opps=0;
 function checkAuthor (){
    name = document.getElemmentById("Author_Name").value
    pass = document.getElementById("Author_id").value
+
     out = document.getElementById("result")
     
     if(name==pass){
@@ -30,8 +32,49 @@ function checkAuthor (){
         alter('Sorry')
         pass.innerHTML = oops
     }
+    if(oops==7)
+    {
+        GuessesExceeded()
+    }
+    
+
+}
+function GuessesExceeded()
+    {
+        alert('Sorry,you ran out of guesses')
+        const btn1= document.getElementById("btn")
+        btn1.disabled = true
+
+        
 }
 </script>
+<hr>
+
+
+  <img src="melbourne.jpg" alt="Melbourne City" width="100" height="100" onclick="selectImage()" id="img">
+  <script>
+    let useImage = 1
+    function selectImage()
+    {
+      switch(useImage)
+      {
+        case 1:
+          document.getElementById("img").src ="melbourne.jpg"
+          useImage+=1
+          break;
+        case 2:
+          document.getElementById("img").src="amsterdam.jpg"
+          useImage+=1
+          break;
+        case 3:
+          document.getElementById("img").src="rome.jpg"
+          useImage=1
+          break;
+        default:
+          document.getElementById("img").src="melbourne.jpg"
+      }
+    }
+  </script>
 
 </body>
 </html> 
