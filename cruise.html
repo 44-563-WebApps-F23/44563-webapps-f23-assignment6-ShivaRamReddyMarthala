@@ -36,20 +36,20 @@
     <hr>
     <form>
         <label for="sr_days">Enter the number of days </label>
-        <input type ="text" id="sr_days" name="sr_days" min=10 max=50 step=2 value="days"> <br>
+        <input type ="text" id="sr_days" name="sr_days" min=10 max=50 step=2 value=" "> <br>
     
         <label for="sr_price">Enter price</label>
-        <input type ="text" id="sr_price" name="price"> <br>
+        <input type ="text" id="sr_price" name="sr_price"> <br>
         <br>
         <input class="btn btn-primary mb-3" type="button" onclick="updateCruise()" value="Update the cruise">
     </form>
 
     <script> 
 
-        var my_cruise={shared:"True",breakfast:"True",pool:"True"}
+        var my_cruise={shared:"True",breakfast:"True",pool:"True" }
             function selectCruise()
             {
-            my_cruise={}
+            my_cruise={ }
             my_cruise.shared = document.getElementById("sr1").checked
             my_cruise.breakfast = document.getElementById("sr2").checked
             my_cruise.pool = document.getElementById("sr3").checked
@@ -58,12 +58,14 @@
             out.style.color="#ff0000"
             }
 
+    
 function updateCruise (){
 
     console.log("Getting form values")
-    days = document.getElementById("sr1_days").value
-    price = document.getElementById("sr1_price").value
-    my_cruise.days = price
+    days = document.getElementById("sr_days").value
+    price = document.getElementById("sr_price").value
+    my_cruise.days = days
+    my_cruise.price = price
     
     out = document.getElementById("result")
     out.innerHTML=JSON.stringify(my_cruise)
