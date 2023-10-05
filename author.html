@@ -5,48 +5,70 @@
     </head> 
 <body>
 <h2>Author entry-Shiva Ram Reddy Marthala</h2>
-<form>
-    <label for="Author_Name">The hidden author name</label>
-    <input type ="password" id="Author_Name" name="Dickens" disabled> <br>
-    <label for="Author_id">Guess the author</label>
-    <input type ="text" id="Author_id" name="Author_id" autofocus> <br>
+<form action="">
 
-    <input type="button" onclick="resolveForm()" value="Check the guess">
-</form>
-<p id="result">Results: Good - <span id="goodcount">0</span>, Oops - <span id="oppscount">0</span></p>
-<script>
-var Good=0;
-var Opps=0;
-function checkAuthor (){
-   name = document.getElemmentById("Author_Name").value
-   pass = document.getElementById("Author_id").value
+  <label for="Hidden-Author-Name">The Hidden Author Name:</label><br><br>
 
-    out = document.getElementById("result")
-    
-    if(name==pass){
-        good++;
-        alter('You got it right')
-        name.innerHTML = Good
-    } else {
-        oops++
-        alter('Sorry')
-        pass.innerHTML = oops
-    }
-    if(oops==7)
-    {
-        GuessesExceeded()
-    }
-    
+  <input type="password" id="hiddenAuthor" name="authorName" value="Dickens"><br><br>
 
-}
-function GuessesExceeded()
-    {
-        alert('Sorry,you ran out of guesses')
-        const btn1= document.getElementById("btn")
-        btn1.disabled = true
+  <label for="Author-Guess">Guess The Author</label><br><br>
 
-        
-}
+  <input type="text" id="authorGuess" name="authorGuess"><br><br>
+
+  <input type="button" class="btn btn-primary" value="guessCheck"
+
+      onclick="oops>6?alertUser():checkAuthor()"><br><br>
+
+  <div id="results"></div><br><br>
+
+  <script>
+
+      var good = 0;
+
+      var oops = 0;
+
+      function checkAuthor() {
+
+          let authorName = document.getElementById("hiddenAuthor").value;
+
+          let guessedValue = document.getElementById("authorGuess").value;
+
+          if (authorName == guessedValue) {
+
+              good++;
+
+              alert("You Got It Right");
+
+          }
+
+          else {
+
+              oops++; alert("Sorry!!!");
+
+          }
+
+          var resultElement = document.getElementById("results");
+
+          if (good == 1) {
+
+              resultElement.innerHTML = "You Got It Right" + " " + good;
+
+          } else {
+
+              resultElement.innerHTML = "Sorry!!!" + " " + oops;
+
+          }
+
+      }
+
+      function alertUser() {
+
+          alert("Sorry, ran out of guesses.");
+
+      }
+const resultElement=document.getElementById("result");
+
+
 </script>
 <hr>
 
