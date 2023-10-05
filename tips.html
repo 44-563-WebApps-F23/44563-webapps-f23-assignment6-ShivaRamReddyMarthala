@@ -17,27 +17,16 @@
  <body>
 
     <h2>Shiva Ram Reddy shows tip amounts</h2>
-    <!--
     <form>
-        <label for="base_amt">What is your age </label>
-        <input type ="number" id="base_amt" name="form1_age" min=10 max=50 step=2 value=30> <br>
-    
-        <label for="form1_nick">What is your nickname </label>
-        <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-    
-        <input type="button" onclick="resolveForm()" value="Get values from form">
-    </form>
-    -->
-    <form>
-        <div class="mb-2">
+        <div class="mb-3">
           <label for="base">Enter Base Amount</label>
           <input type="number" id="base" name="base" min=10 max=50 step=2 value=50>
         </div>
-        <div class="mb-2 ">
+        <div class="mb-3 ">
           <label for="tip_percent">Enter the Tip Percent</label>
           <input type="number" id="tip_percent" name="tip_percent" value=15>
         </div>
-        <input class="btn btn-success mb-2" type="button" value="Show tip" onclick="tips()">
+        <input class="btn btn-success mb-3" type="button" value="Show tip" onclick="tips()">
     </form>
     <p id="result">Calculation shows here</p>
     
@@ -45,21 +34,21 @@
     
     function tips (){
         console.log("Getting form values")
-        baseValue = parseFloat(document.getElementById("bs").value)
-        tippercent = parseFloat(document.getElementById("tip_percentile").value)
+        base = parseFloat(document.getElementById("base").value)
+        tip_percent = parseFloat(document.getElementById("tip_percent").value)
         
         let op=""
         for(let i=0;i<5;i++)
         {
-            const tipPercent = tip + i * 4;
-            const caltip = (bs * tipPercent) / 100;
-            toShow += `${tipPercent}% is ${caltip};` ;
+            const tipP = tip_percent + i * 4;
+            const caltip = (base * tipP) / 100;
+            op += `${tipP}% is ${caltip};` ;
             
         }
         
         out = document.getElementById("result")
-        out.innerHTML = "Tips are:"+op
-        out.style.color="#ff000"
+        out.innerHTML = "Tips are:"+ op
+       
     }
     </script>
 
@@ -67,15 +56,16 @@
     <h6 class="display-6">Radio button</h6>
     <form>
         <input type="radio" id="sum" name="AP" value="sum" onclick="chooseOp()">
-        <label for="sum">Sum</label></br>
+        <label for="sum">Sum</label>
+        <br>
       
-        <input type="radio" id="diff" name="AP" value="difference" onclick="chooseOp()">
-        <label for="diff">diff</label></br>
+        <input type="radio" id="difference" name="AP" value="difference" onclick="chooseOp()">
+        <label for="difference">diff</label>
+        <br>
       
         <input type="radio" id="mult" name="AP" value="product" onclick="chooseOp()">
-        <label for="mult">mult</label></br>
-    
-        <!--<input type="button" onclick="resolveRadio()" value="Get values from radio group">-->
+        <label for="mult">mult</label>
+        <br>
     </form>
     <br>
 
@@ -86,21 +76,21 @@
         function chooseOp ()
         {
             console.log("Getting form values")
-            bs = parseFloat(document.getElementById("base").value)
-            tp = parseFloat(document.getElementById("tip_percent").value)
-            answer = document.getElementById("arthimeticop")
+            base = parseFloat(document.getElementById("base").value)
+            tip_percent = parseFloat(document.getElementById("tip_percent").value)
+            answer = document.getElementById("arthop")
             if(document.getElementById("sum").checked){
 
-              answer.innerHTML="Sum of "+baseValue+" and"+tipValue+" is "+(baseValue+tipValue)
+              answer.innerHTML="Sum of "+base+" and"+tip_percent+" is "+(base+tip_percent)
             }
-            else if(document.getElementById("diff").checked){
+            else if(document.getElementById("difference").checked){
 
-              answer.innerHTML="diff of "+baseValue+" and"+tipValue+" is "+(baseValue-tipValue)
+              answer.innerHTML="diff of "+base+" and"+tip_percent+" is "+(base-tip_percent)
             }
           
             else if(document.getElementById("mult").checked){
-                
-                answer.innerHTML="product of "+baseValue+" and"+tipValue+" is "+(baseValue*tipValue)
+
+                answer.innerHTML="product of "+base+" and"+tip_percent+" is "+(base*tip_percent)
             }
             answer.style.color="#ff0000"
         }
